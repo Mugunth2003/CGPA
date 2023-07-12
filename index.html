@@ -70,7 +70,7 @@
             var gpa = totalMarks / (totalCredits * 10);
 
             var cgpaPart3 = parseFloat(document.getElementById("cgpaPart3").value);
-            var cgpa = (gpa + cgpaPart3) / 10;
+            var cgpa = (gpa + cgpaPart3) / 2;
 
             document.getElementById("result").innerHTML = "GPA: " + gpa.toFixed(2);
             document.getElementById("cgpaResult").innerHTML = "CGPA: " + cgpa.toFixed(2);
