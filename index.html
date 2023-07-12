@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 150px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result, #cgpaResult {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function calculateGPA() {
+            var coor = parseFloat(document.getElementById("coor").value);
+            var cn = parseFloat(document.getElementById("cn").value);
+            var advJava = parseFloat(document.getElementById("advJava").value);
+            var ddbms = parseFloat(document.getElementById("ddbms").value);
+            var php = parseFloat(document.getElementById("php").value);
+            var sub1 = parseFloat(document.getElementById("sub1").value);
+            var sub2 = parseFloat(document.getElementById("sub2").value);
+            var sub3 = parseFloat(document.getElementById("sub3").value);
+
+            var cp1 = 5;
+            var cp2 = 4;
+            var cp3 = 4;
+            var cp4 = 4;
+            var cp5 = 3;
+            var cp6 = parseFloat(document.getElementById("cp6").value);
+            var cp7 = parseFloat(document.getElementById("cp7").value);
+            var cp8 = parseFloat(document.getElementById("cp8").value);
+
+            var totalCredits = cp1 + cp2 + cp3 + cp4 + cp5 + cp6 + cp7 + cp8;
+            var totalMarks = (coor * cp1) + (cn * cp2) + (advJava * cp3) + (ddbms * cp4) + (php * cp5) + (sub1 * cp6) + (sub2 * cp7) + (sub3 * cp8);
+
+            var gpa = totalMarks / (totalCredits * 10);
+
+            var cgpaPart3 = parseFloat(document.getElementById("cgpaPart3").value);
+            var cgpa = (gpa + cgpaPart3) / 10;
+
+            document.getElementById("result").innerHTML = "GPA: " + gpa.toFixed(2);
+            document.getElementById("cgpaResult").innerHTML = "CGPA: " + cgpa.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>GPA Calculator</h1>
+    <form>
+        <label for="coor">Coor:</label>
+        <input type="text" id="coor" />
+
+        <label for="cn">CN:</label>
+        <input type="text" id="cn" />
+
+        <label for="advJava">Adv Java:</label>
+        <input type="text" id="advJava" />
+
+        <label for="ddbms">DDBMS:</label>
+        <input type="text" id="ddbms" />
+
+        <label for="php">PHP:</label>
+        <input type="text" id="php" />
+
+        <label for="sub1">Sub1:</label>
+        <input type="text" id="sub1" />
+
+        <label for="sub2">Sub2:</label>
+        <input type="text" id="sub2" />
+
+        <label for="sub3">Sub3:</label>
+        <input type="text" id="sub3" />
+
+        <label for="cp6">Credit Points for Sub6:</label>
+        <input type="text" id="cp6" />
+
+        <label for="cp7">Credit Points for Sub7:</label>
+        <input type="text" id="cp7" />
+
+        <label for="cp8">Credit Points for Sub8:</label>
+        <input type="text" id="cp8" />
+
+        <label for="cgpaPart3">3rd Semester Part 3 CGPA:</label>
+        <input type="text" id="cgpaPart3" />
+
+        <button type="button" onclick="calculateGPA()">Calculate</button>
+    </form>
+
+    <p id="result"></p>
+    <p id="cgpaResult"></p>
+</body>
+</html>
